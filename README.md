@@ -2,8 +2,9 @@ Predicción Salarial — Proyecto Ciencia de los Datos
 Universidad Nacional de Colombia
 
 Integrantes del grupo
+
 Anderson Bedoya	abedoyaar@unal.edu.co
-Sergio Gómez Galeano	segomezga@unal.edu.co
+Sergio Gómez Galeano segomezga@unal.edu.co
 
 Descripción del proyecto
 Este proyecto implementa una aplicación completa para la predicción de salarios utilizando tres modelos de Machine Learning:
