@@ -3,142 +3,26 @@ Predicción Salarial — Proyecto Ciencia de los Datos
 Universidad Nacional de Colombia
 Entrega: 21 de noviembre
 
-👥 Integrantes del grupo
-Nombre Completo	Correo UNAL
+Integrantes del grupo
+Nombre	Correo UNAL
 Anderson Bedoya	abedoyaar@unal.edu.co
 
 Sergio Gómez Galeano	segomezga@unal.edu.co
-🧠 Descripción del proyecto
+Descripción del proyecto
 
-Este proyecto implementa una aplicación completa de predicción salarial usando tres modelos de Machine Learning:
+Este proyecto implementa una aplicación completa para la predicción de salarios utilizando tres modelos de Machine Learning:
 
-Regresión Lineal (predice el salario en valor numérico)
+Regresión Lineal: predice el valor numérico del salario.
 
-KNN (predice el rango salarial)
+KNN: predice el rango salarial (Muy bajo, Bajo, Medio, Alto, Muy alto).
 
-MLP (red neuronal, también predice el rango salarial)
+MLP (Perceptrón Multicapa): también predice el rango salarial.
 
 La aplicación está dividida en dos partes:
 
-✔ Frontend
+1. Frontend
 
-Interfaz web donde el usuario ingresa su edad, género, nivel educativo, años de experiencia y título de trabajo.
-Luego selecciona el modelo y ve el resultado directamente en pantalla.
-
-✔ Backend (API con Flask)
-
-Recibe los datos del usuario, ejecuta el modelo seleccionado y devuelve la predicción al frontend.
-
-Todo está conectado y funcionando de forma interactiva.
-
-📁 Estructura del repositorio
-prediccion-salarial/
-│
-├── backend/
-│   ├── app.py
-│   ├── regresion_model.pkl
-│   ├── scaler_regresion.pkl
-│   ├── knn_model.pkl
-│   ├── scaler_knn.pkl
-│   ├── mlp_model.pkl
-│   ├── scaler_mlp.pkl
-│   ├── ohe_columns.pkl
-│   └── data/
-│       ├── Salary_Data_Procesada_Numerica.csv
-│       └── job_titles.json
-│
-└── frontend/
-    ├── index.html
-    ├── styles.css
-    └── script.js
-
-🛠️ Guía paso a paso para ejecutar el proyecto
-
-A continuación tendrás una guía escrita como si la persona jamás hubiera visto Python ni programación.
-Sigue exactamente cada paso y funciona sin errores.
-
-1️⃣ Instalar Python
-
-Este proyecto funciona con Python 3.10 o superior.
-
-▶ Windows
-
-Ir a:
-https://www.python.org/downloads/windows/
-
-Descargar Windows Installer.
-
-MUY IMPORTANTE:
-☑ Marcar la casilla "Add Python to PATH"
-
-Instalar.
-
-▶ Mac
-
-https://www.python.org/downloads/macos/
-
-▶ Linux
-
-Python ya viene instalado.
-Verifica con:
-
-python3 --version
-
-2️⃣ Instalar dependencias del backend
-
-Abrir una terminal dentro de la carpeta backend/.
-
-✔ Windows:
-
-Abre la carpeta backend.
-
-Mantén SHIFT presionado.
-
-Haz clic derecho → “Open PowerShell window here”.
-
-Ejecutar este comando:
-pip install flask flask-cors scikit-learn pandas numpy joblib
-
-
-Esto instala:
-
-Flask (API)
-
-CORS
-
-Modelos de ML
-
-Lectura de CSV
-
-Conversión numérica
-
-3️⃣ Ejecutar el backend
-
-Desde la carpeta backend/:
-
-python app.py
-
-
-Si todo está bien, verás algo así:
-
-Running on http://127.0.0.1:5000
-
-
-No cierres esta ventana.
-Debe quedar abierta mientras usas la aplicación.
-
-4️⃣ Abrir el frontend
-
-Ahora abre la carpeta frontend/ y haz doble clic en:
-
-index.html
-
-
-La página se abre automáticamente en tu navegador.
-
-5️⃣ Usar la aplicación
-
-Completa los campos:
+Interfaz web donde el usuario puede ingresar sus datos:
 
 Edad
 
@@ -150,42 +34,144 @@ Título de trabajo
 
 Años de experiencia
 
-Elige un modelo:
+Modelo de predicción a utilizar
 
-Regresión
+El resultado aparece directamente en pantalla.
 
-KNN
+2. Backend
 
-MLP
+API construida en Flask, encargada de:
 
-Haz clic en "Conocer predicción".
+Recibir los datos desde el frontend
 
-El resultado aparece inmediatamente en la tarjeta inferior.
+Procesarlos
 
-💡 Recomendaciones importantes
+Seleccionar el modelo solicitado
 
-El backend SIEMPRE debe ejecutarse antes de abrir la página.
+Retornar la predicción generada
 
-Si el frontend muestra "Error de conexión al backend", significa que:
+El backend contiene:
 
-el backend no está ejecutándose, o
+Código de la API (app.py)
 
-se cerró la ventana donde estaba corriendo Flask.
+Modelos entrenados (.pkl)
 
-📌 Notas técnicas (opcionales para el docente)
+Escaladores y columnas del One-Hot Encoding
 
-Los modelos fueron entrenados con el dataset procesado final.
+Archivos de datos (.csv y .json)
 
-Regresión usa One Hot Encoding de forma consistente con el backend.
+Estructura del repositorio
+prediccion-salarial/
+│
+├── backend/
+│   ├── app.py
+│   ├── knn_model.pkl
+│   ├── mlp_model.pkl
+│   ├── regresion_model.pkl
+│   ├── scaler_knn.pkl
+│   ├── scaler_mlp.pkl
+│   ├── scaler_regresion.pkl
+│   ├── ohe_columns.pkl
+│   └── data/
+│       ├── job_titles.json
+│       └── Salary_Data_Procesada_Numerica.csv
+│
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
+│
+└── README.md
 
-KNN y MLP utilizan archivos .pkl generados desde Google Colab.
+Requisitos del sistema
 
-Todo el proyecto está organizado siguiendo buenas prácticas básicas:
+Antes de ejecutar el proyecto, se debe tener instalado:
 
-separación frontend/backend
+1. Python (versión 3.10 o superior)
 
-API REST
+Puedes verificarlo con:
 
-manejo de CORS
+python --version
 
-escalado y vectorización alineada
+2. Pip (gestor de paquetes de Python)
+
+Verificar con:
+
+pip --version
+
+3. Navegador web actualizado
+
+(Chrome, Edge, Firefox, etc.)
+
+Instalación de dependencias
+
+En la carpeta raíz del proyecto, ejecutar:
+
+pip install flask flask-cors pandas numpy scikit-learn joblib
+
+
+Esto instala todo lo necesario para que funcione la API.
+
+Ejecución del backend
+
+Abrir una terminal y ubicarse en la carpeta:
+
+cd backend
+
+
+Ejecutar el servidor Flask:
+
+python app.py
+
+
+Cuando aparezca el mensaje:
+
+Running on http://127.0.0.1:5000
+
+
+el backend ya está funcionando correctamente.
+
+Ejecución del frontend
+
+El frontend funciona simplemente abriendo el archivo:
+
+frontend/index.html
+
+
+Pasos:
+
+Abrir la carpeta frontend/.
+
+Hacer doble clic en index.html.
+
+La interfaz se abrirá en el navegador.
+
+Ingresar los datos y seleccionar un modelo.
+
+Presionar el botón Conocer predicción.
+
+Nota: Para que funcione la comunicación, el backend debe estar corriendo en la terminal.
+
+Cómo funciona la comunicación
+
+El frontend envía una solicitud HTTP al backend.
+
+El backend recibe los datos, selecciona el modelo indicado y genera la predicción.
+
+El frontend muestra el resultado de inmediato en pantalla.
+
+Observaciones finales
+
+Este proyecto cumple los requisitos del curso:
+
+Tres modelos implementados
+
+API en Flask
+
+Frontend funcional
+
+Comunicación completa entre frontend y backend
+
+Repositorio con estructura correcta
+
+Instrucciones claras para despliegue
